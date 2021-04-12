@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Login </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,500' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body></br></br></br></br></br>
+        <div align="center">
+          <div align="center" class="border">
+             <div class="header">
+                <h1 class="word">Login</h1>
+             </div></br></br></br>
+            <h2 class="word">
+                <form action="{{ url_for('login') }}" method="post">
+                  <div class="msg">{{ msg }}</div>
+                    <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br>
+                    <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br></br>
+                      <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LdoTKUaAAAAAF6_DecG8mayOcpPzXqJ6IPlcF5L" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                            <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
+                            <div class="help-block with-errors"></div>
+                          <div class="g-recaptcha" data-sitekey="6LdoTKUaAAAAAF6_DecG8mayOcpPzXqJ6IPlcF5L" data-theme="light" data-size="normal" data-image="image"></div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                        </div>
+                    {% set form.captcha.data.image = 'image' %}
+                    {% set form.captcha.data.image = 'audio' %}
+                    <button class="g-recaptcha"
+        data-sitekey="6LdoTKUaAAAAAF6_DecG8mayOcpPzXqJ6IPlcF5L"
+        data-callback='onSubmit'
+        data-action='submit'>Submit</button>
+                    <br>
+
+                </form>
+                <input type="submit" class="btn" value="Sign in"></br>
+            </h2>
+            <p class="bottom">Dont't have an account?  <a class="bottom" href="{{url_for('register')}}"> Sign Up here</a></p>
+          </div>
+        </div>
+    </body>
+</html>
